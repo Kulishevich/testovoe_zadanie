@@ -1,7 +1,10 @@
 import { FC } from "react";
 import s from "./YandexMap.module.scss";
+import { useIsMobile } from "@/utils/UseIsMobile";
 
 export const YandexMap: FC = () => {
+  const isMobile = useIsMobile("tablet");
+
   return (
     <div className={s.wrapper}>
       <div style={{ position: "relative", overflow: "hidden" }}>
@@ -29,8 +32,8 @@ export const YandexMap: FC = () => {
         </a>
         <iframe
           src="https://yandex.by/map-widget/v1/?ll=27.569305%2C53.886387&z=16.18"
-          width="1356"
-          height="480"
+          width={!isMobile ? "1356" : "335"}
+          height={!isMobile ? "480" : "230"}
           frameBorder="1"
           allowFullScreen={true}
           style={{ position: "relative" }}

@@ -2,14 +2,20 @@ import React, { FC } from "react";
 import s from "./Footer.module.scss";
 import { HouseIcon } from "@/assets/icons";
 import { Typography } from "../typography";
+import { useIsMobile } from "@/utils/UseIsMobile";
 
 export const Footer: FC = () => {
+  const isMobile = useIsMobile("tablet");
+
   return (
     <div className={s.footer}>
       <div className={s.container}>
         <div className={s.logoContainer}>
           <div className={s.logo}>
-            <HouseIcon />
+            <HouseIcon
+              width={isMobile ? "42" : "64"}
+              height={isMobile ? "42" : "64"}
+            />
             <div className={s.textLogo}>
               <Typography variant="body_3">Строительные решения</Typography>
               <Typography variant="body_5">строительная компания</Typography>
@@ -25,8 +31,7 @@ export const Footer: FC = () => {
               Адрес офиса
             </Typography>
             <Typography variant="body_3" as="p">
-              РБ, г. Минск, <br />
-              ул. Ленина, 1
+              РБ, г. Минск, ул. Ленина, 1
             </Typography>
           </div>
           <div className={s.workTime}>

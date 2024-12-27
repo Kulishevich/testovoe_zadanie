@@ -12,10 +12,18 @@
 
     display: flex;
     justify-content: center;
+    @media (max-width: 768px) {
+      height: 650px;
+    --swiper-pagination-bottom: 24px;
+    }
   }
   .swiper {
     width: 747px;
     height: 100%;
+    @media (max-width: 768px) {
+      width: 335px;
+      margin: 0;
+    }
   }
   .slide {
     width: 100%;
@@ -36,10 +44,18 @@
   display: flex;
   gap: 65px;
   margin-top: 261px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 82px;
+    gap: 24px;
+  } 
 }
 .sliderContainer {
   display: flex;
   flex-direction: column;
   height: fit-content;
   gap: 32px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }

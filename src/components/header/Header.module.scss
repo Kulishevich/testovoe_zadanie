@@ -7,11 +7,20 @@
     border-bottom: 1px solid var(--color-bg-1-50);
     margin-top: 24px;
     z-index: 10;
+    @media (max-width: 768px) {
+        height: 42px;
+        margin-top: 16px;
+        border: none;
+    }
 }
 .container {
     display: flex;
     align-items: start;
     gap: 408px;
+    @media (max-width: 768px) {
+        gap: 113px;
+        align-items: center;
+    }
 }
 .logoContainer {
     display: flex;

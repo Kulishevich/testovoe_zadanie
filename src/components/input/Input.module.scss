@@ -25,4 +25,8 @@
       outline: 1px solid var(--color-grey);
     }
   
+    @media (max-width: 768px) {
+      width: 303px;
+      height: 56px;
+    }
   }

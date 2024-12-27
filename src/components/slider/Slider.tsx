@@ -11,6 +11,7 @@ import { Button } from "../button";
 import { InfoCard } from "../infoCard";
 import { FC, useState } from "react";
 import { PopupCallBack } from "../popupCallBack";
+import { useIsMobile } from "@/utils/UseIsMobile";
 
 const slides = [
   {
@@ -31,7 +32,7 @@ const slides = [
 ];
 export const Slider: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+  const isMobile = useIsMobile("tablet");
   const handleOpenModal = () => {
     setIsOpen((prev) => !prev);
   };

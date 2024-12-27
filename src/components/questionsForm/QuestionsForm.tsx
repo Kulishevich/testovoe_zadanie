@@ -7,12 +7,13 @@ import { Comment } from "../comment";
 import { Checkbox } from "../checkbox";
 import { Button } from "../button";
 import { sendMessage } from "@/api/telegram";
+import { useIsMobile } from "@/utils/UseIsMobile";
 
 export const QuestionsForm: FC = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
-
+  const isMobile = useIsMobile("tablet");
   const handleCheckboxChange = () => {
     setIsChecked((prev) => !prev);
   };
@@ -36,8 +37,8 @@ export const QuestionsForm: FC = () => {
         <Image
           src="/image1.jpg"
           alt="image"
-          width={660}
-          height={428}
+          width={!isMobile ? 660 : 335}
+          height={!isMobile ? 428 : 200}
           className={s.image}
         />
         <div className={s.form}>

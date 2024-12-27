@@ -9,6 +9,7 @@ import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { XIcon } from "@/assets/icons";
 import { sendMessage } from "@/api/telegram";
+import { useIsMobile } from "@/utils/UseIsMobile";
 
 type PopupCallBackProps = {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export const PopupCallBack = ({ isOpen, setIsOpen }: PopupCallBackProps) => {
   const [isChecked, setIsChecked] = useState(false);
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
+  const isMobile = useIsMobile("tablet");
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -49,8 +51,8 @@ export const PopupCallBack = ({ isOpen, setIsOpen }: PopupCallBackProps) => {
           <Image
             src="/image.png"
             alt="image"
-            width={660}
-            height={198}
+            width={!isMobile ? 660 : 335}
+            height={!isMobile ? 198 : 140}
             className={s.image}
           />
           <Button
