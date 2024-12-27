@@ -1,12 +1,17 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import s from "./Header.module.scss";
 import { Typography } from "../typography";
 import { HouseIcon, PhoneIcon } from "@/assets/icons";
 import { Button } from "../button";
 import { useIsMobile } from "@/utils/UseIsMobile";
+import { PopupCallBack } from "../popupCallBack";
 
 export const Header: FC = () => {
   const isMobile = useIsMobile("tablet");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleOpenModal = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <div className={s.header}>
@@ -43,13 +48,20 @@ export const Header: FC = () => {
                 сб – вс: с 10:00 до 16:00
               </Typography>
             </div>
-            <Button className={s.button} variant={"outlined"}>
+            <Button
+              onClick={handleOpenModal}
+              className={s.button}
+              variant={"outlined"}
+            >
               <Typography variant="button_large">Заказать звонок</Typography>
             </Button>
           </div>
         ) : (
-          <PhoneIcon />
+          <Button onClick={handleOpenModal} variant={"link"}>
+            <PhoneIcon />
+          </Button>
         )}
+        <PopupCallBack isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );
