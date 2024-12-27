@@ -1,0 +1,12 @@
+export { default as UpRightIcon } from "./UpRightIcon";
+export { default as UpIcon } from "./UpIcon";
+export { default as UpLeftIcon } from "./UpLeftIcon";
+export { default as RightIcon } from "./RightIcon";
+export { default as PhoneIcon } from "./PhoneIcon";
+export { default as LeftIcon } from "./LeftIcon";
+export { default as DownRightIcon } from "./DownRightIcon";
+export { default as DownLeftIcon } from "./DownLeftIcon";
+export { default as DownIcon } from "./DownIcon";
+export { default as CheckIcon } from "./CheckIcon";
+export { default as HouseIcon } from "./HouseIcon";
+export { default as XIcon } from "./XIcon";

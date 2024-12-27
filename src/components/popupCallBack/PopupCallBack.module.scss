@@ -1,0 +1,79 @@
+.overlay {
+    position: fixed;
+    background: #011B1B99;
+    inset: 0;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 660px;
+    height: 754px;
+    max-height: 100vh;
+    background-color: var(--color-bg-1-100);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.image{
+    object-fit: cover;
+}
+.iconButton {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #11414299;
+}
+.form {
+    width: 428px;
+    height: 508px;
+    margin: 16px 116px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    color: var(--color-accent-2-700)
+}   
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    & > p {
+        text-align: center;
+    }
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input > h6 {
+    margin-bottom: 12px;
+}
+
+.submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.checkboxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}

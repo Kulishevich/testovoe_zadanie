@@ -1,0 +1,119 @@
+$mobile: 768px;
+
+@mixin typography($fontSize, $lineHeight, $fontWeight) {
+  margin: 0;
+  padding: 0;
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+
+  @if $fontWeight == 400 {
+    font-family: 'Helvetica', sans-serif;
+  } @else if $fontWeight == 500 {
+    font-family: 'Involve', sans-serif;
+  } @else if $fontWeight == 800 {
+    font-family: 'Gilroy', sans-serif;
+  }
+}
+
+.h1 {
+  @include typography(64px, 84.2px, 500);
+  @media (max-width: $mobile) {
+    @include typography(28px, 33.6px, 500);
+  }
+}
+
+.h2 {
+  @include typography(48px, 62.4px, 800);
+  @media (max-width: $mobile) {
+    @include typography(24px, 28.8px, 800);
+  }
+}
+
+.h3 {
+  @include typography(40px, 52px, 400);
+  @media (max-width: $mobile) {
+    @include typography(22px, 26.4px, 400);
+  }
+}
+
+.h4 {
+  @include typography(32px, 41.6px, 800);
+  @media (max-width: $mobile) {
+    @include typography(20px, 24px, 800);
+  }
+}
+
+.h5 {
+  @include typography(22px, 28.6px, 800);
+  @media (max-width: $mobile) {
+    @include typography(18px, 21.6px, 800);
+  }
+}
+
+.h6 {
+  @include typography(18px, 23.4px, 400);
+  @media (max-width: $mobile) {
+    @include typography(16px, 19.2px, 400);
+  }
+}
+
+.body_1 {
+  @include typography(26px, 36.4px, 400);
+  @media (max-width: $mobile) {
+    @include typography(16px, 20.8px, 400);
+  }
+}
+
+.body_2 {
+  @include typography(18px, 25.2px, 400);
+  @media (max-width: $mobile) {
+    @include typography(15px, 19.5px, 400);
+  }
+}
+
+.body_3 {
+  @include typography(16px, 22.4px, 400);
+  @media (max-width: $mobile) {
+    @include typography(14px, 18.2px, 400);
+  }
+}
+
+.body_4 {
+  @include typography(14px, 19.6px, 400);
+  @media (max-width: $mobile) {
+    @include typography(13px, 16.9px, 400);
+  }
+}
+
+.body_4_bold {
+  @include typography(14px, 19.6px, 400);
+  @media (max-width: $mobile) {
+    @include typography(13px, 16.9px, 400);
+  }
+}
+
+.body_5 {
+  @include typography(12px, 16.8px, 400);
+  @media (max-width: $mobile) {
+    @include typography(12px, 15.6px, 400);
+  }
+}
+
+.button_medium {
+  @include typography(18px, 20px, 400);
+}
+
+.button_large {
+  @include typography(20px, 24px, 800);
+}
+
+.text_placeholder_big {
+  @include typography(18px, 24px, 400);
+}
+
+.text_placeholder_small {
+  @include typography(16px, 24px, 400);
+}
+

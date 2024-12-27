@@ -1,0 +1,28 @@
+.input {
+    all: unset;
+  
+    box-sizing: border-box;
+    width: 428px;
+    height: 64px;
+    padding: 20px 24px;
+    color: var(--color-grey);
+  
+    outline: 1px solid var(--color-accent-2-700);
+  
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        outline: 1px solid var(--color-accent-500);
+        box-shadow: 0px 0px 8px 0px #E975504D;
+    }
+    
+    &:focus {
+        outline: 1px solid var(--color-accent-500);
+        color : var(--color-accent-2-700);
+    }
+
+    &:disabled {
+      outline: 1px solid var(--color-grey);
+    }
+  
+  }

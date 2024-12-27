@@ -1,0 +1,51 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 1356px;
+    height: 428px;
+    display: flex;
+    gap: 36px;
+}
+
+.image{
+    object-fit: cover;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 661px;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    width: 544px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
