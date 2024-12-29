@@ -1,5 +1,6 @@
 import { HomePage } from "@/views/homePage";
 import Head from "next/head";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
       <div>
         <HomePage />
+        <Toaster />
       </div>
     </>
   );

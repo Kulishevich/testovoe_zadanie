@@ -7,6 +7,7 @@ export const sendMessage = async (message: string): Promise<void> => {
 
   if (!res.ok) {
     const error = await res.json();
-    await Promise.reject(error.description || "Что-то пошло не так...");
+    console.error(error);
+    await Promise.reject("Что-то пошло не так...");
   }
 };

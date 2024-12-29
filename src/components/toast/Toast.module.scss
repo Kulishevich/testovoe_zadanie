@@ -1,0 +1,41 @@
+.rootClass {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 300px;
+  height: 36px;
+  padding: 10px 15px;
+
+  border-radius: 5px;
+
+  &.success {
+    background-color: var(--color-success-700);
+  }
+
+  &.error {
+    background-color: var(--color-danger-700);
+  }
+
+  .contentWrapper {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .message {
+    overflow: hidden;
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:var(--color-bg-1-100);
+  }
+}
+
+.closeButton {
+  cursor: pointer;
+  display: flex;
+}

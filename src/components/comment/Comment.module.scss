@@ -1,5 +1,6 @@
 .container {
   display: flex;  
+  position: relative;
 }
 
 .textarea {
@@ -35,4 +36,10 @@
       width: 303px;
       height: 120px;
     }
+  }
+
+  .error {
+    position: absolute;
+    color: var(--color-danger-300);
+    bottom: -17px;
   }

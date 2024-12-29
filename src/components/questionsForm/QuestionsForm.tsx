@@ -8,28 +8,41 @@ import { Checkbox } from "../checkbox";
 import { Button } from "../button";
 import { sendMessage } from "@/api/telegram";
 import { useIsMobile } from "@/utils/UseIsMobile";
+import { showToast } from "../toast";
+import { useForm } from "react-hook-form";
 
 export const QuestionsForm: FC = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [comment, setComment] = useState("");
   const isMobile = useIsMobile("tablet");
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: {
+      phone: "",
+      comment: "",
+    },
+  });
+
   const handleCheckboxChange = () => {
     setIsChecked((prev) => !prev);
   };
 
-  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
-    e.preventDefault();
-    const message = `Поступила заявка на обратную связь. Номер телефона: ${phone} | Комментарий: ${comment}`;
+  const handlePost = handleSubmit(async (data) => {
+    const message = `Поступила заявка на обратную связь. Номер телефона: ${data.phone} | Комментарий: ${data.comment}`;
+
     try {
       await sendMessage(message);
-      setPhone("");
-      setComment("");
       setIsChecked(false);
+      showToast({ message: "Ваше сообщене отправлено", variant: "success" });
+      reset();
     } catch (e) {
-      console.error(e as string);
+      showToast({ message: e as string, variant: "error" });
     }
-  };
+  });
 
   return (
     <div className={s.wrapper}>
@@ -57,9 +70,15 @@ export const QuestionsForm: FC = () => {
                 Телефон*
               </Typography>
               <Input
+                error={errors.phone && errors.phone?.message}
                 placeholder="+375 (99) 999-99-99"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                {...register("phone", {
+                  required: "Поле обязательно для заполнения",
+                  pattern: {
+                    value: /^\+375 ?\(?\d{2}\)? ?\d{3}-?\d{2}-?\d{2}$/,
+                    message: "Введите номер в формате +375 (XX) XXX-XX-XX",
+                  },
+                })}
               />
             </div>
             <div className={s.inputContainer}>
@@ -67,9 +86,11 @@ export const QuestionsForm: FC = () => {
                 Комментарий
               </Typography>
               <Comment
+                error={errors.comment && errors.comment?.message}
                 placeholder="Ваш комментарий"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
+                {...register("comment", {
+                  required: "Пожалуйста введите комментарий",
+                })}
               />
             </div>
           </div>
@@ -83,7 +104,7 @@ export const QuestionsForm: FC = () => {
                 Согласие на обработку персональных данных
               </Typography>
             </div>
-            <Button disabled={!isChecked} onClick={handleSubmit}>
+            <Button disabled={!isChecked} onClick={handlePost}>
               <Typography variant="button_large">Отправить</Typography>
             </Button>
           </div>
