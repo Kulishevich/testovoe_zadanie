@@ -12,6 +12,8 @@
     padding: 19px 8px;
     outline: none;
     border: none;
+
+    transition: all 0.3s ease;
     &:disabled {
       cursor: default;
     }

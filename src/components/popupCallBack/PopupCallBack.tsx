@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 
 type PopupCallBackProps = {
   isOpen: boolean;
-  setIsOpen: (value: boolean) => void;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const PopupCallBack = ({ isOpen, setIsOpen }: PopupCallBackProps) => {
@@ -35,7 +35,9 @@ export const PopupCallBack = ({ isOpen, setIsOpen }: PopupCallBackProps) => {
   });
 
   const handleCloseModal = () => {
-    setIsOpen(false);
+    setIsOpen((prev) => !prev);
+    setIsChecked(false);
+    reset();
   };
 
   const handleCheckboxChange = () => {
@@ -55,7 +57,7 @@ export const PopupCallBack = ({ isOpen, setIsOpen }: PopupCallBackProps) => {
   });
 
   return (
-    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog.Root open={isOpen} onOpenChange={handleCloseModal}>
       <Dialog.Portal>
         <Dialog.Overlay className={s.overlay} />
         <Dialog.Content className={s.content}>
